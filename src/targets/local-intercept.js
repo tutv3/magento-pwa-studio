@@ -17,4 +17,12 @@ module.exports = targets => {
         });
         return routes;
     });
+
+    //  set buldpacl features
+    const builtins = targets.of('@magento/pwa-buildpack');
+    builtins.specialFeatures.tap(featuresByModule => {
+        featuresByModule['my-extension'] = {
+            esModules: true
+        };
+    });
 };

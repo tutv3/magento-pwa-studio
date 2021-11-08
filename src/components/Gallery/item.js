@@ -103,7 +103,6 @@ const GalleryItem = props => {
             </div>
 
             <div className={classes.actionsContainer}>
-                {' '}
                 {addButton}
                 {wishlistButton}
             </div>

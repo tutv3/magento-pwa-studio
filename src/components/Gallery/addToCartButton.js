@@ -50,7 +50,6 @@ const AddToCartButton = props => {
                     id="addToCartButton.addItemToCart"
                     defaultMessage="ADD TO CART"
                 />
-                111
             </span>
         </Button>
     );

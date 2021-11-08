@@ -2,6 +2,13 @@
     align-content: start;
     display: grid;
     row-gap: 0.5rem;
+    padding: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.root:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
 }
 
 .images {
@@ -22,12 +29,12 @@
 }
 
 .imageLoaded {
-    composes: loaded from '../Image/image.module.css';
+    composes: loaded from '@magento/venia-ui/lib/components/Image/image.module.css';
     opacity: 1;
 }
 
 .imageNotLoaded {
-    composes: notLoaded from '../Image/image.module.css';
+    composes: notLoaded from '@magento/venia-ui/lib/components/Image/image.module.css';
     opacity: 0;
 }
 

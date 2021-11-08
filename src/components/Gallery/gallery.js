@@ -14,43 +14,39 @@ import { useGallery } from '@magento/peregrine/lib/talons/Gallery/useGallery';
  * @params {Array} props.items an array of items to render
  */
 const Gallery = props => {
-    const { items } = props;
-    const classes = useStyle(defaultClasses, props.classes);
-    const talonProps = useGallery();
-    const { storeConfig } = talonProps;
+  const { items } = props;
+  const classes = useStyle(defaultClasses, props.classes);
+  const talonProps = useGallery();
+  const { storeConfig } = talonProps;
 
-    const galleryItems = useMemo(
-        () =>
-            items.map((item, index) => {
-                if (item === null) {
-                    return <GalleryItemShimmer key={index} />;
-                }
-                return (
-                    <GalleryItem
-                        key={item.id}
-                        item={item}
-                        storeConfig={storeConfig}
-                    />
-                );
-            }),
-        [items, storeConfig]
-    );
+  const galleryItems = useMemo(
+    () =>
+      items.map((item, index) => {
+        if (item === null) {
+          return <GalleryItemShimmer key={index} />;
+        }
+        return (
+          <GalleryItem key={item.id} item={item} storeConfig={storeConfig} />
+        );
+      }),
+    [items, storeConfig]
+  );
 
-    return (
-        <div className={classes.root} aria-live="polite" aria-busy="false">
-            <div className={classes.items}>{galleryItems}</div>
-        </div>
-    );
+  return (
+    <div className={classes.root} aria-live="polite" aria-busy="false">
+      <div className={classes.items}>{galleryItems}</div>
+    </div>
+  );
 };
 
 Gallery.propTypes = {
-    classes: shape({
-        filters: string,
-        items: string,
-        pagination: string,
-        root: string
-    }),
-    items: array.isRequired
+  classes: shape({
+    filters: string,
+    items: string,
+    pagination: string,
+    root: string
+  }),
+  items: array.isRequired
 };
 
 export default Gallery;
